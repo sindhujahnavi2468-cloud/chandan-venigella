@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chandan Venigella Photography — Hyderabad Wedding &amp; Destination Photographer</title>
+<meta name="description" content="Chandan Venigella Photography — 13+ years, 700+ weddings. Wedding, destination and editorial photography based in Hyderabad, available worldwide." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0908;
+    --bg-alt:#131110;
+    --panel:#171412;
+    --ivory:#f4efe6;
+    --ivory-dim:rgba(244,239,230,.62);
+    --ivory-faint:rgba(244,239,230,.34);
+    --maroon:#7a2a24;
+    --maroon-light:#a8433a;
+    --line:rgba(244,239,230,.14);
+    --line-strong:rgba(244,239,230,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ivory);
+    font-family:'Manrope',sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--ivory-dim);
+    font-weight:500;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;line-height:1.08;}
+  .serif-italic{font-style:italic;font-weight:400;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 6vw;}
+  ::selection{background:var(--maroon-light);color:var(--ivory);}
+
+  /* ---------- Monogram ---------- */
+  .mono{
+    width:42px;height:42px;border-radius:50%;
+    border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1rem;
+    flex-shrink:0;
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 6vw;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:background .4s ease, padding .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.nav.scrolled{
+    background:rgba(10,9,8,.86);
+    backdrop-filter:blur(10px);
+    padding:14px 6vw;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-name{
+    font-family:'Fraunces',serif;font-size:1.05rem;letter-spacing:.03em;
+  }
+  .brand-name span{display:block;font-family:'Manrope',sans-serif;font-size:.62rem;letter-spacing:.28em;color:var(--ivory-faint);text-transform:uppercase;margin-top:2px;}
+  nav.links{display:flex;align-items:center;gap:38px;}
+  nav.links a{
+    font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ivory-dim);position:relative;padding-bottom:4px;
+    transition:color .3s ease;
+  }
+  nav.links a::after{
+    content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--maroon-light);transition:width .3s ease;
+  }
+  nav.links a:hover{color:var(--ivory);}
+  nav.links a:hover::after{width:100%;}
+  .nav-tag{
+    display:flex;align-items:center;gap:8px;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-faint);
+  }
+  .nav-cta{
+    border:1px solid var(--line-strong);padding:9px 20px;border-radius:2px;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    transition:background .3s ease,border-color .3s ease;
+  }
+  .nav-cta:hover{background:var(--maroon);border-color:var(--maroon);}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;}
+  .hamburger span{width:24px;height:1px;background:var(--ivory);display:block;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    display:flex;align-items:flex-end;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;}
+  .hero-bg .slide{
+    position:absolute;inset:0;background-size:cover;background-position:center 25%;
+    opacity:0;transition:opacity 1.8s ease;
+  }
+  .hero-bg .slide.active{opacity:1;}
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(10,9,8,.35) 0%, rgba(10,9,8,.15) 30%, rgba(10,9,8,.55) 70%, rgba(10,9,8,.94) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:5;width:100%;padding:0 6vw 70px;
+  }
+  .hero-content .eyebrow{margin-bottom:22px;}
+  .hero-title{
+    font-size:clamp(2.6rem,6.4vw,5.6rem);
+    max-width:14ch;
+    color:var(--ivory);
+  }
+  .hero-title em{font-style:italic;color:var(--ivory-dim);}
+  .hero-stats{
+    display:flex;gap:48px;margin-top:44px;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:26px;max-width:640px;
+  }
+  .hero-stats .stat b{
+    display:block;font-family:'Fraunces',serif;font-size:1.7rem;font-weight:400;
+  }
+  .hero-stats .stat span{
+    font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-faint);
+  }
+  .scroll-cue{
+    position:absolute;right:6vw;bottom:36px;z-index:5;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory-faint);
+  }
+  .scroll-cue .line{width:1px;height:52px;background:var(--line-strong);position:relative;overflow:hidden;}
+  .scroll-cue .line::after{
+    content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;
+    background:var(--ivory);animation:scrollLine 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollLine{0%{top:-100%;}50%{top:0;}100%{top:100%;}}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- Intro / About ---------- */
+  .intro{
+    padding:150px 0 130px;
+  }
+  .intro .grid{
+    display:grid;grid-template-columns:.82fr 1fr;gap:80px;align-items:center;
+  }
+  .intro-img{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+  }
+  .intro-img img{width:100%;height:100%;object-fit:cover;}
+  .intro-img .frame{
+    position:absolute;inset:18px;border:1px solid rgba(244,239,230,.5);
+    pointer-events:none;
+  }
+  .intro-text .eyebrow{margin-bottom:20px;}
+  .intro-text h2{
+    font-size:clamp(1.9rem,3.4vw,2.9rem);margin-bottom:26px;max-width:12ch;
+  }
+  .intro-text p{
+    color:var(--ivory-dim);font-size:1rem;line-height:1.85;max-width:46ch;margin-bottom:18px;
+  }
+  .text-link{
+    display:inline-flex;align-items:center;gap:10px;margin-top:16px;
+    font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;
+    border-bottom:1px solid var(--line-strong);padding-bottom:6px;
+    transition:border-color .3s ease, gap .3s ease;
+  }
+  .text-link:hover{border-color:var(--ivory);gap:16px;}
+  .stat-row{display:flex;gap:44px;margin-top:40px;flex-wrap:wrap;}
+  .stat-row .stat b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;}
+  .stat-row .stat span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-faint);}
+
+  /* ---------- Section heading pattern ---------- */
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:60px;gap:30px;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);padding-bottom:30px;
+  }
+  .section-head h2{font-size:clamp(2rem,4vw,3.1rem);}
+  .section-head p{color:var(--ivory-dim);max-width:34ch;font-size:.95rem;line-height:1.7;}
+
+  /* ---------- Gallery ---------- */
+  .gallery{padding:110px 0;background:var(--bg-alt);}
+  .g-grid{
+    display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:130px;gap:14px;
+  }
+  .g-grid a{
+    position:relative;overflow:hidden;display:block;border-radius:1px;
+  }
+  .g-grid img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s ease;
+    filter:saturate(.92) brightness(.94);
+  }
+  .g-grid a:hover img{transform:scale(1.07);filter:saturate(1) brightness(1);}
+  .g-grid a::after{
+    content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(244,239,230,.08);
+  }
+  .g1{grid-column:span 2;grid-row:span 3;}
+  .g2{grid-column:span 2;grid-row:span 2;}
+  .g3{grid-column:span 2;grid-row:span 2;}
+  .g4{grid-column:span 2;grid-row:span 2;}
+  .g5{grid-column:span 2;grid-row:span 3;}
+  .g6{grid-column:span 2;grid-row:span 2;}
+  .g7{grid-column:span 3;grid-row:span 2;}
+  .g8{grid-column:span 3;grid-row:span 2;}
+
+  /* ---------- Services ---------- */
+  .services{padding:130px 0;}
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);}
+  .svc{
+    background:var(--bg);padding:64px 54px;position:relative;overflow:hidden;min-height:520px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+  }
+  .svc img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:.42;transition:opacity .6s ease, transform 1.2s ease;
+  }
+  .svc:hover img{opacity:.58;transform:scale(1.04);}
+  .svc::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,9,8,.15),rgba(10,9,8,.92));
+  }
+  .svc-inner{position:relative;z-index:2;}
+  .svc-inner .eyebrow{margin-bottom:14px;}
+  .svc-inner h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin-bottom:16px;}
+  .svc-inner p{color:var(--ivory-dim);max-width:38ch;font-size:.94rem;line-height:1.75;margin-bottom:20px;}
+
+  /* ---------- Social strip ---------- */
+  .social{background:var(--panel);padding:110px 0;}
+  .social-top{
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;
+    margin-bottom:50px;
+  }
+  .social-top h2{font-size:clamp(1.9rem,3.6vw,2.8rem);}
+  .social-top .handle{color:var(--ivory-dim);font-size:.95rem;margin-top:10px;}
+  .social-stats{display:flex;gap:36px;}
+  .social-stats .stat b{display:block;font-family:'Fraunces',serif;font-size:1.4rem;}
+  .social-stats .stat span{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-faint);}
+  .social-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+  .social-strip a{aspect-ratio:1/1;overflow:hidden;position:relative;display:block;}
+  .social-strip img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease;filter:saturate(.9);}
+  .social-strip a:hover img{transform:scale(1.08);}
+  .social-btn{
+    display:inline-flex;align-items:center;gap:10px;margin-top:44px;
+    border:1px solid var(--line-strong);padding:14px 30px;
+    font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;
+    transition:background .3s ease, border-color .3s ease;
+  }
+  .social-btn:hover{background:var(--maroon);border-color:var(--maroon);}
+
+  /* ---------- Booking banner ---------- */
+  .booking{
+    position:relative;padding:150px 0;text-align:center;overflow:hidden;
+    background:linear-gradient(180deg,#3a1512,#2a0f0d);
+  }
+  .booking::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 0%, rgba(168,67,58,.35), transparent 60%);
+  }
+  .booking-inner{position:relative;z-index:2;}
+  .booking h2{font-size:clamp(2.1rem,5vw,3.8rem);max-width:16ch;margin:0 auto 20px;}
+  .booking p{color:var(--ivory-dim);font-size:1rem;max-width:44ch;margin:0 auto 40px;line-height:1.7;}
+  .booking-actions{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;}
+  .btn{
+    padding:16px 34px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    border-radius:2px;transition:all .3s ease;
+  }
+  .btn-solid{background:var(--ivory);color:#1a1310;}
+  .btn-solid:hover{background:#fff;}
+  .btn-ghost{border:1px solid rgba(244,239,230,.4);}
+  .btn-ghost:hover{background:rgba(244,239,230,.1);}
+
+  /* ---------- Footer ---------- */
+  footer{padding:90px 0 34px;background:var(--bg);}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;padding-bottom:60px;
+    border-bottom:1px solid var(--line);
+  }
+  .footer-brand .mono{margin-bottom:20px;}
+  .footer-brand p{color:var(--ivory-dim);font-size:.92rem;line-height:1.8;max-width:34ch;margin-top:16px;}
+  .footer-col h4{
+    font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory-faint);margin-bottom:22px;
+  }
+  .footer-col a, .footer-col p{
+    display:block;color:var(--ivory-dim);font-size:.92rem;margin-bottom:12px;
+  }
+  .footer-col a:hover{color:var(--ivory);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;padding-top:28px;
+    font-size:.72rem;color:var(--ivory-faint);flex-wrap:wrap;gap:14px;
+  }
+  .footer-bottom .socials{display:flex;gap:22px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    nav.links, .nav-tag, .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .intro .grid{grid-template-columns:1fr;gap:50px;}
+    .svc-grid{grid-template-columns:1fr;}
+    .g-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:110px;}
+    .g1,.g5{grid-column:span 2;grid-row:span 3;}
+    .g2,.g3,.g4,.g6{grid-column:span 2;grid-row:span 2;}
+    .g7,.g8{grid-column:span 4;}
+    .social-strip{grid-template-columns:repeat(3,1fr);}
+    .footer-top{grid-template-columns:1fr;gap:36px;}
+  }
+  @media (max-width:600px){
+    .hero-stats{gap:30px;}
+    .g-grid{grid-template-columns:repeat(2,1fr);}
+    .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 2;grid-row:span 2;}
+    .social-strip{grid-template-columns:repeat(2,1fr);}
+    .booking-actions{flex-direction:column;align-items:center;}
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu{
+    position:fixed;inset:0;background:var(--bg);z-index:150;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;
+    transform:translateY(-100%);transition:transform .5s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:1.6rem;font-style:italic;}
+  .mobile-menu .nav-tag{margin-top:20px;}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#top">Home</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <div class="nav-tag">📍 Hyderabad · Worldwide</div>
+</div>
+
+<header class="nav" id="siteNav">
+  <a href="#top" class="brand">
+    <div class="mono">CV</div>
+    <div class="brand-name">Chandan Venigella
+      <span>Photography</span>
+    </div>
+  </a>
+  <nav class="links">
+    <a href="#top">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:26px;">
+    <div class="nav-tag">📍 Hyderabad</div>
+    <a href="tel:+919154523456" class="nav-cta">+91 91545 23456</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="eyebrow reveal in">Hyderabad · Destination Wedding Photography &amp; Films</div>
+    <h1 class="hero-title reveal in">Turning Moments <em>into Forever Memories</em></h1>
+    <div class="hero-stats reveal in">
+      <div class="stat"><b>13+</b><span>Years Experience</span></div>
+      <div class="stat"><b>700+</b><span>Weddings Documented</span></div>
+      <div class="stat"><b>14.4K</b><span>Instagram Community</span></div>
+      <div class="stat"><b>Worldwide</b><span>Availability</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+<section class="intro" id="about">
+  <div class="wrap grid">
+    <div class="intro-img reveal">
+      <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215653/Capturing_real_emotions_with_timeless_elegance_Chandan_Venigella_Photography._PreWeddingShoo_jczsnj.jpg" alt="Chandan Venigella Photography — candid portrait" />
+      <div class="frame"></div>
+    </div>
+    <div class="intro-text reveal">
+      <div class="eyebrow">The Photographer</div>
+      <h2>Candid stories, told with quiet elegance</h2>
+      <p>Chandan Venigella is a wedding, destination and editorial photographer based in Hyderabad, with over thirteen years spent documenting love stories across India and beyond.</p>
+      <p>Every frame is built around real emotion over posed perfection — the glance before the vows, the hush before the first dance, the light exactly as it fell. Over 700 weddings later, that instinct for the unscripted moment is still what the work is built on.</p>
+      <div class="stat-row">
+        <div class="stat"><b>13+</b><span>Years</span></div>
+        <div class="stat"><b>700+</b><span>Weddings</span></div>
+        <div class="stat"><b>2</b><span>Craft — Photo &amp; Film</span></div>
+      </div>
+      <a href="#portfolio" class="text-link">View the Portfolio →</a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="portfolio">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Moments</h2>
+      <p>A selection of recent weddings, pre-wedding stories and editorial portraits — updated regularly.</p>
+    </div>
+    <div class="g-grid reveal">
+      <a class="g1" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215646/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_3_gjvq0h.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215646/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_3_gjvq0h.jpg" alt="Wedding moment 1" loading="lazy" />
+      </a>
+      <a class="g2" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215647/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_1_vv8cqc.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215647/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_1_vv8cqc.jpg" alt="Wedding moment 2" loading="lazy" />
+      </a>
+      <a class="g3" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215652/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_1_gnll1g.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215652/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_1_gnll1g.jpg" alt="Bridal portrait" loading="lazy" />
+      </a>
+      <a class="g4" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215653/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_2_q7iaha.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215653/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_2_q7iaha.jpg" alt="Wedding moment 3" loading="lazy" />
+      </a>
+      <a class="g5" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215657/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_maykha.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215657/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_maykha.jpg" alt="Couple portrait 1" loading="lazy" />
+      </a>
+      <a class="g6" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215654/Two_souls._One_promise._A_forever_written_in_light_love_and_vows._Captured_with_heart_by_CV_p_li9ekx.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215654/Two_souls._One_promise._A_forever_written_in_light_love_and_vows._Captured_with_heart_by_CV_p_li9ekx.jpg" alt="Couple portrait 2" loading="lazy" />
+      </a>
+      <a class="g7" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_1_bqud0f.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_1_bqud0f.jpg" alt="Couple portrait 3" loading="lazy" />
+      </a>
+      <a class="g8" href="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_3_cphx3t.jpg" target="_blank" rel="noopener">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_3_cphx3t.jpg" alt="Bridal portrait 2" loading="lazy" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>What I Shoot</h2>
+      <p>Two crafts, one eye for the real moment.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="svc">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215661/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_2_esdmlw.jpg" alt="Wedding photography" loading="lazy" />
+        <div class="svc-inner">
+          <div class="eyebrow">01 — Wedding Photography</div>
+          <h3>Weddings &amp; Destination</h3>
+          <p>Full-day and multi-day wedding coverage across India and destination locations, built around candid storytelling rather than staged sequences.</p>
+          <a href="#contact" class="text-link">Enquire →</a>
+        </div>
+      </div>
+      <div class="svc">
+        <img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215665/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_oabdag.jpg" alt="Pre-wedding editorial" loading="lazy" />
+        <div class="svc-inner">
+          <div class="eyebrow">02 — Editorial</div>
+          <h3>Pre-Wedding &amp; Portraits</h3>
+          <p>Editorial-style pre-wedding shoots and portrait sessions, shaped by light and location, for couples who want their own visual story.</p>
+          <a href="#contact" class="text-link">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social">
+  <div class="wrap">
+    <div class="social-top reveal">
+      <div>
+        <h2>@chandan_venigella</h2>
+        <div class="handle">Photography · Videography — the everyday archive of the work</div>
+      </div>
+      <div class="social-stats">
+        <div class="stat"><b>303</b><span>Posts</span></div>
+        <div class="stat"><b>14.4K</b><span>Followers</span></div>
+        <div class="stat"><b>700+</b><span>Weddings</span></div>
+      </div>
+    </div>
+    <div class="social-strip reveal">
+      <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_1_bqud0f.jpg" alt="Instagram post 1" loading="lazy" /></a>
+      <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215653/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_1_gnll1g.jpg" alt="Instagram post 2" loading="lazy" /></a>
+      <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215647/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_1_vv8cqc.jpg" alt="Instagram post 3" loading="lazy" /></a>
+      <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215654/Two_souls._One_promise._A_forever_written_in_light_love_and_vows._Captured_with_heart_by_CV_p_li9ekx.jpg" alt="Instagram post 4" loading="lazy" /></a>
+      <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215665/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_oabdag.jpg" alt="Instagram post 5" loading="lazy" /></a>
+    </div>
+    <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener" class="social-btn reveal">Follow on Instagram →</a>
+  </div>
+</section>
+
+<section class="booking" id="contact">
+  <div class="wrap booking-inner">
+    <div class="eyebrow reveal">Let's Talk</div>
+    <h2 class="reveal">Ready to have your story told the way it happened?</h2>
+    <p class="reveal">Reach out with your date and location — availability worldwide, based in Hyderabad.</p>
+    <div class="booking-actions reveal">
+      <a href="tel:+919154523456" class="btn btn-solid">Call +91 91545 23456</a>
+      <a href="https://wa.me/919154523456" target="_blank" rel="noopener" class="btn btn-ghost">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="mono">CV</div>
+        <h3 style="font-size:1.3rem;">Chandan Venigella Photography</h3>
+        <p>Wedding, destination and editorial photography — Hyderabad, with availability worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#top">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="tel:+919154523456">+91 91545 23456</a>
+        <a href="https://wa.me/919154523456" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener">Instagram</a>
+        <p>Hyderabad, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Chandan Venigella Photography. All rights reserved.</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/chandan_venigella/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Hero slideshow ----
+  const heroImages = [
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215646/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_3_gjvq0h.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215647/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_1_vv8cqc.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215653/Capturing_real_emotions_with_timeless_elegance_Chandan_Venigella_Photography._PreWeddingShoo_jczsnj.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215652/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_1_gnll1g.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215653/Framed_in_shadows_glowing_in_love_this_is_where_forever_begins._Chandan_Venigella_Photograph_2_q7iaha.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215657/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_maykha.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215654/Two_souls._One_promise._A_forever_written_in_light_love_and_vows._Captured_with_heart_by_CV_p_li9ekx.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Two_hearts_one_story_written_in_love._Candid_love_stories_captured_just_the_way_they_are_1_bqud0f.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215659/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_3_cphx3t.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215661/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_2_esdmlw.jpg",
+    "https://res.cloudinary.com/dvsfztcmm/image/upload/v1784215665/Grace_isn_t_just_seen_it_s_felt._Every_glance_every_shadow_every_detail_tells_a_story_of_oabdag.jpg"
+  ];
+  const heroBg = document.getElementById('heroBg');
+  heroImages.forEach((src,i)=>{
+    const div = document.createElement('div');
+    div.className = 'slide' + (i===0 ? ' active' : '');
+    div.style.backgroundImage = `url('${src}')`;
+    heroBg.appendChild(div);
+  });
+  let heroIdx = 0;
+  const slides = heroBg.querySelectorAll('.slide');
+  setInterval(()=>{
+    slides[heroIdx].classList.remove('active');
+    heroIdx = (heroIdx+1) % slides.length;
+    slides[heroIdx].classList.add('active');
+  }, 4500);
+
+  // ---- Nav scroll state ----
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', ()=>{
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ---- Mobile menu ----
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', ()=>{
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=> mobileMenu.classList.remove('open'));
+  });
+
+  // ---- Reveal on scroll ----
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.15});
+  revealEls.forEach(el=> io.observe(el));
+</script>
+</body>
+</html>
